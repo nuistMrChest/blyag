@@ -112,6 +112,7 @@ img{
     height:30vh;
     background-color:rgb(050,110,180);
 }
+
 .txt{
     display:flex;
     justify-content:center;
@@ -122,13 +123,29 @@ img{
     flex-wrap:wrap;
     flex-direction:column;
 }
+
 .txt t3{
     font-size:3vh;
 }
+
 .txt p{
     font-size:1.5vh;
 }
+
 a{
     color:inherit;
     text-decoration:none;
+}
+
+pre.code{
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    padding: 1vw;
+    margin: 3vw;
+    background-color: #000000;
+    font-size: 1.5vh;
+    color: azure;
 }

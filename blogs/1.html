@@ -1,0 +1,90 @@
+<!-- 老师真帅 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BLYGE!!!!! - Personal blog of MrChest</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="icon.jpg" type="/image/jpeg">
+    </head>
+    <body>
+        <div id="bk">
+        </div>
+        <div id="title-box">
+            <t2 id="sub-title">我的emacs配置分享</t2>
+        </div>
+        <div id="nav-rep"></div>
+        <div id="main">
+  
+                <pre class="code"><code>
+(setq inhibit-startup-screen t)
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t)
+
+(setenv "PATH" (concat "/home/mrchest/.npm -global/bin:" (getenv "PATH")))
+(add-to-list 'exec-path "/home/mrchest/.npm-global/bin")
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(require 'package)
+
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+
+(package-initialize)
+
+(setq catppuccin-flavor 'mocha)
+(load-theme 'catppuccin t)
+
+(require 'cuda-mode)
+
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . cuda-mode))
+(add-hook 'cuda-mode-hook #'lsp)
+
+(setq lsp-enable-on-type-formatting nil)
+
+(require 'lsp-mode)
+(require 'lsp-ui)
+(require 'company)
+
+(global-company-mode 1)
+
+(add-hook 'c-mode-hook #'lsp)
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'rust-mode-hook #'lsp)
+(add-hook 'java-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'js-mode-hook #'lsp)
+(add-hook 'html-mode-hook #'lsp)
+(add-hook 'css-mode-hook #'lsp)
+(add-hook 'sh-mode-hook #'lsp)
+(add-hook 'cuda-mode-hook #'lsp)
+
+(setq-default sgml-basic-offset 4)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default c-basic-offset 4)
+
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-&lt;") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-&lt;") 'mc/mark-all-like-this)
+
+(require 'treemacs)
+
+(treemacs )
+                </code></pre>
+                <div class="txt">
+                    注意 本配置为本人个人使用 仅从参考
+                </div>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>
