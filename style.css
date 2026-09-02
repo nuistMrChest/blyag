@@ -1,0 +1,73 @@
+#bk{
+    z-index:-1;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-color:blueviolet;
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+#nav{
+    color:white;
+    margin-top:30px;
+    margin-bottom:30px;
+    text-transform:uppercase;
+    height:40px;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:sticky;
+    top:0;          
+    background-color:rgba(0,0,0,0); 
+    z-index:1000; 
+}
+
+#nav ul{
+    display:flex;
+    list-style:none;
+    width:900px;   
+    margin:auto;           
+    padding:0;         
+    padding-top:10px;
+    padding-bottom:10px;
+    justify-content:center;
+    align-items:center;
+    border-top:2px;
+    border-bottom:2px;
+    border-left:0px;
+    border-right:0px;
+    border-style:solid;
+    border-color:white; 
+}
+
+#nav li{
+    margin-right:10px;
+}
+
+ul li a{
+    color:inherit;
+}
+
+#title-box{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    flex-wrap:wrap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+#main-title{
+    color:white;
+    font-size:30vh;
+    font-family:"UnifrakturCook",cursive;
+}
+
+#sub-title{
+    color:white;
+    font-size:7vh;
+}

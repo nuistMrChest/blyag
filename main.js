@@ -1,0 +1,9 @@
+fetch("/nav.html")
+    .then(response=>response.text())
+    .then(
+        html=>{
+            document
+                .querySelector("#nav-rep")
+                .insertAdjacentHTML("beforeend",html)
+        }
+    )
