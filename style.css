@@ -64,10 +64,71 @@ ul li a{
 #main-title{
     color:white;
     font-size:30vh;
+    padding:1vw;
     font-family:"UnifrakturCook",cursive;
 }
 
 #sub-title{
     color:white;
     font-size:7vh;
+}
+
+#main{
+    padding-top:3vw;
+    width:100vw;
+    height:1000vh;
+    background-color:rgb(50,100,100);
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    align-content:flex-start;
+    gap:7vh;
+    padding:7vh;
+    flex-wrap:wrap;
+}
+
+body,html{
+    margin:0px;
+    padding:0px;
+}
+
+.work{
+    width:20vw;
+    height:40vh;
+    background-color:rgb(100,100,50);
+}
+
+img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.displv_img{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:auto;
+    height:30vh;
+    background-color:rgb(050,110,180);
+}
+.txt{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:auto;
+    height:10vh;
+    background-color:rgb(060,050,110);
+    flex-wrap:wrap;
+    flex-direction:column;
+}
+.txt t3{
+    font-size:3vh;
+}
+.txt p{
+    font-size:1.5vh;
+}
+a{
+    color:inherit;
+    text-decoration:none;
 }
