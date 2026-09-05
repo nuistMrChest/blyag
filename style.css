@@ -209,7 +209,7 @@ body::after {
 }
 
 #nav ul::before {
-    content: "[ BLYAG.OS ]";
+    content: "[ BLYAG.ICU ]";
     display: flex;
     margin-right: auto;
     align-items: center;
