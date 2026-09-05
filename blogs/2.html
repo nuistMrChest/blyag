@@ -1,0 +1,378 @@
+<!-- 老师真帅 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BLYAG!!!!! - Personal blog of MrChest</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="icon.jpg" type="/image/jpeg">
+    </head>
+    <body>
+        <div id="bk">
+        </div>
+        <div id="title-box">
+            <t2 id="sub-title">Git 学习笔记（1）</t2>
+        </div>
+        <div id="nav-rep"></div>
+        <div id="main">
+            <div>
+                第一次接触git其实是github 当时是为了折腾黑苹果 很多资源都在上面 所以还以为是什么高端的百度网盘<br>
+                后来隐约明白 github是开发者们存放与分享源代码的地方 但是也没深入了解 <br />
+                
+                直到上了本科后 某个周末 打算自学前端 看着精心搭建出来的html页面和js脚本 总想着分享给大家 但是见过分享.exe的 分享.jar的 没听说过直接分享html的 在说学的是前端 为什么不部署成网页呢 <br />
+                
+                当然一个穷学生是租不起服务器的 我只能去寻找免费方案 经过一通寻找 再加上问llm 终于得知了一个叫github pages的东西 只要把文件名改称index.html 上传上去 再部署以下 大家就都能访问了（当然国内可能慢点） <br />
+                
+                直接在网页上上传代码当然很麻烦 于是我又去寻找 有没有更快捷的方法 能够一键同步 上去 才知道 原来有git这个东西 从此 学会了git的clone push pull add commit和init等命令 配合gh cli <br />
+                完全是当作github的本地客户端在使用 包括后续本人写的oblivia，libmatchstick等项目 过程中git基本也是这么用的 <br />
+                
+                不过很显然 git作为版本控制工具的功能 我一直没掌握 今天有空 来学习一下 <br />
+                
+                首先作为经典unix工具风格的软件 我尝试加上--help看看会提示出什么： <br />
+
+                <img alt="" src="img/2/1.png" />
+                
+                
+                还是给出了挺多信息的 <br />
+                
+                clone和init不用说了 这个以前用的很多 <br />
+                
+                add mv以及rm也使用过 主要是用于删掉emacs生r成的垃圾 restore倒是没碰见过 <br />
+                
+                接下来的bisect diff grep log show和status是重头戏 应该是版本控制的主力吧 这里面我接触过的只有status <br />
+                
+                在接下来的backfill等 看上去同样重要 这里面也是除了commit 基本没有接触过 <br />
+                
+                最后fetch pull和push还算熟悉 <br />
+                
+                那么我们新建一个项目来尝试一下 <br />
+                
+                <img alt="" src="img/2/2.png" />
+                
+                提示了很多信息 之前我也没注意国 下一步基本就gh repo create了 今天既然是在学习 我们就关注关注 <br />
+                
+                此处提到了一个概念叫做branch 初始名字叫做"master" 在git 3.0版本会改为"main" <br />
+
+                之后的信息大体都是关于这个branch名字和信息提示本身的 <br />
+
+                那么什么叫做branch呢 <br />
+                
+                尝试 git --help branch <br />
+                
+                <img alt="" src="img/2/3.png" />
+                
+                进入了一个类似man的页面 里面主要是在讲关于branch的操作 但是在底部有这么一行信息 <br />
+
+                <img alt="" src="img/2/4.png" />
+
+                
+                用浏览器打开 <br />
+                
+                <img alt="" src="img/2/5.png" />
+                
+                他很人性化的没有给我们跳转到branch页面 而是主页面 ：（ <br />
+                
+                <img alt="" src="img/2/6.png" />
+                
+                当然不难找到 这里揭示了什么叫做branch 本人暂时理解为版本排列出来的时间线吧 <br />
+                
+                按照他给的文档尝试git branch <br />
+                
+                <img alt="" src="img/2/7.png" />
+                
+                他说会列出所有branch <br />
+                
+                <img alt="" src="img/2/8.png" />
+                
+                无事发生 <br />
+                
+                难道就不存在任何branch? <br />
+                
+                不是说默认默认branch名是master吗 <br />
+                
+                思考一下 branch是关于版本的概念 项目刚创建 会不会不存在版本 <br />
+                
+                那我们创建一个版本尝试一下 <br />
+                
+                <img alt="" src="img/2/9.png" />
+                
+                简简单单写点东西 <br />
+                
+                <img alt="" src="img/2/10.png" />
+                
+                好 commit的时候显示了master的这个名字 并且有个信息叫做root-commit 那么root作为根的意思 会不会是整个branch的根呢 <br />
+                
+                我们再次查看 <br />
+                
+                <img alt="" src="img/2/11.png" />
+                
+                master出现了 <br />
+                
+                为了方便学习 我们先多创建几个版本 <br />
+                
+                <img alt="" src="img/2/12.png" />
+                <img alt="" src="img/2/13.png" />
+                <img alt="" src="img/2/14.png" />
+                <img alt="" src="img/2/15.png" />
+                <img alt="" src="img/2/16.png" />
+                <img alt="" src="img/2/17.png" />
+                
+                
+                
+                
+                
+                
+                得到了一系列版本 <br />
+                
+                那么怎么查看当前提交了多少东西呢 <br />
+                
+                回到刚才的提示 <br />
+                
+                <img alt="" src="img/2/18.png" />
+                
+                先试试log <br />
+                
+                <img alt="" src="img/2/19.png" />
+                
+                很漂亮的展现出来了提交记录 <br />
+                
+                再试试show <br />
+                
+                <img alt="" src="img/2/20.png" />
+                
+                展现了最后一次提交记录 及其改变了什么 <br />
+                
+                但是help里面说的是"various types of objects" 那这个object会是什么专有名词吗 还是说就是物体 <br />
+                
+                <img alt="" src="img/2/21.png" />
+                
+                在文档的这一部分似乎有介绍 <br />
+                
+                读完感觉以后需要修正一下 branch代表的也不是什么一堆版本的排列 <br />
+                
+                <img alt="" src="img/2/22.png" />
+                
+                按照我的理解： <br />
+                
+                object分为四种 blob tree commit和tag 这里面tag见不管他 <br />
+                
+                blob指的就是文件 tree就类似于文件目录 这两个组合足以表达整个项目的文件树 <br />
+                
+                commit就更高级了 首先commit里面有一个tree 就是这次提交的项目根目录 <br />
+                
+                当然还会有时间 作者 改动了什么之类的信息 <br />
+                
+                之后还会可能会有parent commit 数量不一定 也就是说若干commit可以组合成链表 树 或者图 <br />
+                
+                在接下来 branch并不是一种object 而是类似于object的“指针” 指向某个commit 而由于commit只记录上一次提交的信息 是“单向”的 所以沿着branch往前找 能找出一条提交记录线 <br />
+                
+                branch所指向的东西并不是固定的 会随着提交改变 不过他所代表的东西没那么“动态” 就像一个表头指针能确定一个链表一样 <br />
+                
+                暂时我是这么理解的 有错误欢迎指正 <br />
+                
+                回来继续研究show <br />
+                
+                <img alt="" src="img/2/23.png" />
+                
+                注意到commit后面有一串神秘代码 看上去像是hash出来的什么东西 肯能是id? <br />
+                
+                show一下试试 <br />
+                
+                <img alt="" src="img/2/24.png" />
+                
+                确实展示了那次提交的具体信息 <br />
+                
+                但是这只是commit 我记得他号称能看所有object的信息吧 <br />
+                
+                在git --help show找到如下例子 <br />
+
+                <img alt="" src="imt/2/25.png" />
+                
+                尝试一下 <br />
+                
+                <img alt="" src="img/2/26.png" />
+                
+                main.c作为blob的信息就出来了 <br />
+                
+                <img alt="" src="img/2/27.png" />
+                
+                当前项目根目录作为tree的信息也出来了 <br />
+                
+                但是问题是这些都是最近一次提交 如果需要历史提交呢 <br />
+                
+                我们把master替换为神秘代码试试 <br />
+                
+                <img alt="" src="img/2/28.png" />
+                
+                成功了 但是每次输入神秘代码肯定不像话 猜测tag是不是用来解决这个问题的 听名字很像 而且刚才的EXAMPLES里面也用到了 <br />
+                
+                文档里面是这么说的 <br />
+                
+                <img alt="" src="img/2/29.png" />
+                
+                感觉像是标签 点进链接看tag的一系列操作 <br />
+                
+                <img alt="" src="img/2/30.png" />
+                
+                画风突变 <br />
+                
+                咱先不管那些花里胡哨的参数 他不是说 git tag &lt;tagname> [&lt;commit> | &lt;object>] 吗 <br />
+                
+                现在我们已经知道神秘代码能代表一次commit了 那就来 <br />
+                
+                <img alt="" src="img/2/31.png" />
+                
+                什么都没输出 <br />
+                
+                show一下试试？ <br />
+                
+                <img alt="" src="img/2/32.png" />
+                
+                漂亮 <br />
+                
+                相对应的 <br />
+                
+                <img alt="" src="img/2/33.png" />
+                
+                都是可以的 <br />
+                
+                现在学会了查看历史提交信息 给提交打tag 但是如果我不光想查看 我想改动呢 <br />
+                
+                在去看看help <br />
+                
+                <img alt="" src="img/2/34.png" />
+                
+                这里看上去最相当好像就是switch了 但是他好像是针对branch的操作 <br />
+                
+                随便试试 <br />
+                
+                <img alt="" src="img/2/35.png" />
+                
+                好 报错说缺失branch或commit的参数 那么这个东西也支持跳转到commit? <br />
+                
+                我们把tag名扔进去试试 <br />
+                
+                <img alt="" src="img/2/36.png" />
+                
+                这次直接告诉我们了 试试--detach <br />
+                
+                <img alt="" src="img/2/37.png" />
+                
+                告诉我们head了那个位置 验证一下 <br />
+                
+                <img alt="" src="img/2/38.png" />
+                
+                没毛病 <br />
+                
+                突发奇想 我在这个位置改点啥 commit一下会怎么样 毕竟这种情况理论上确实会存在吧 <br />
+                
+                <img alt="" src="img/2/39.png" />
+                <img alt="" src="img/2/40.png" />
+                
+                
+                log一下看看 <br />
+                
+                <img alt="" src="img/2/41.png" />
+                
+                根我之前的猜测好像差不多 他根据head一路往前找 找到头 形成一条历史 而且这一条没有显示任何master之类的词 所以应该不是master branch吧 <br />
+                
+                根据刚才switch的信息 我应该可以git switch master直接回去 但是我没有创建branch 也没有创建tag 也就是类似于没有任何指针指向这个链表表头 那么我一回去 <br />
+                这次新的commit就成了“内存泄露”了 验证一下 <br />
+                
+                <img alt="" src="img/2/42.png" />
+                
+                好吧 根据提示信息才知道我漏想了 那次commit的神秘代码还是有的 是能switch回去的 <br />
+                
+                借着这个机会正好试试创建branch <br />
+                
+                <img alt="" src="img/2/43.png" />
+                
+                还算容易 <br />
+                
+                这样的话 意味着是可以分岔的 那么模型就从线性表变成了树 <br />
+                
+                但是总听人说git的模型是图 那怎么成环呢 <br />
+                
+                感觉像是这个 <br />
+                
+                <img alt="" src="img/2/44.png" />
+                
+                依旧随便试试 <br />
+                
+                <img alt="" src="img/2/45.png" />
+                
+                出现了概念 remote 什么是remote呢 我好想在关于gh的地方看见过 <br />
+                
+                依旧瞎试试 <br />
+                
+                <img alt="" src="img/2/46.png" />
+                
+                没报错 没输出 <br />
+                
+                根据tag和branch的经验 后面什么参数不加应该是列出当前所有remote 而目前没有remote <br />
+                
+                既然我在关于gh的地方看见过 那就先去一个已经上传到github的仓库去看看 <br />
+                
+                <img alt="" src="img/2/47.png" />
+                
+                出现了origin <br />
+                
+                先help看看是怎么个事 <br />
+                
+                <img alt="" src="img/2/48.png" />
+                <img alt="" src="img/2/49.png" />
+                
+                
+                看起来 origin是给在github的那个仓库起了个别名 <br />
+                
+                见不研究他了 我们在琢磨merge的事情 <br />
+                
+                还是help一下 <br />
+                
+                <img alt="" src="img/2/50.png" />
+                
+                说的也很清楚了 就是用来合并的 <br />
+                
+                那我们来试试 <br />
+                
+                <img alt="" src="img/2/51.png" />
+                
+                说是有冲突 也确实 <br />
+                
+                那怎么处理冲突呢 <br />
+                
+                <img alt="" src="img/2/52.png" />
+                
+                好像很直白 "ours" "theirs" <br />
+                
+                <img alt="" src="img/2/53.png" />
+                
+                什么情况 <br />
+                
+                <img alt="" src="img/2/54.png" />
+                
+                额 编辑一下试试？ <br />
+                
+                <img alt="" src="img/2/55.png" />
+                
+                应该不用再ours和theirs了吧 <br />
+                
+                <img alt="" src="img/2/56.png" />
+                
+                看样子需要手动创建一次commit <br />
+                
+                <img alt="" src="img/2/57.png" />
+                
+                log看看 <br />
+                
+                <img alt="" src="img/2/58.png" />
+                
+                成功了 <br />
+                
+                感觉基础操作学了一半有了吧 更详细的参数和其他命令以后在学 <br />
+                跑路～ <br />
+            </div>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>
