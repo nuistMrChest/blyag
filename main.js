@@ -1,6 +1,8 @@
 const navTarget = document.querySelector("#nav-rep");
+const blogListTarget = document.querySelector("#blog-list-rep");
 const scriptUrl = document.currentScript?.src ?? window.location.href;
 const navUrl = new URL("nav.html", scriptUrl);
+const blogListUrl = new URL("blog_list.html", scriptUrl);
 const navFallback = `
     <nav id="nav">
         <ul id="nu">
@@ -37,3 +39,20 @@ fetch(navUrl)
         console.error(error);
         mountNavigation(navFallback);
     });
+
+if (blogListTarget) {
+    fetch(blogListUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Blog list request failed: ${response.status}`);
+            }
+
+            return response.text();
+        })
+        .then(html => {
+            blogListTarget.insertAdjacentHTML("beforeend", html);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
