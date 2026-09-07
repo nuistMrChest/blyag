@@ -1,0 +1,110 @@
+
+<!-- 老师真帅 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BLYAG!!!!! - Personal blog of MrChest</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="\icon.jpg" type="/image/jpeg">
+    </head>
+    <body>
+        <div id="bk">
+        </div><div id="title-box"><t2 id="sub-title">Blyagger --- 当小白开始维护个人博客
+</t2></div>
+<div id="nav-rep"></div>
+<div id="main">
+<div class="txt">
+几天前 我试着建立了自己的个人技术博客网站：blyag.icu<br>
+<br>
+由于前端完全是自学的 学了个半调子 所以也不会什么vue，react 之类的 只会那这html css和js手搓静态网站 再加上本人穷学生一个 根本租不起服务器 这个网站自然也只能部署在github pages<br>
+<br>
+从软件工程的角度 这个网站的可维护性无疑是炸裂的 每次有新的博客要上传 我都必须打开emacs 手动新加html页面 更改目录 然后push <br>
+<br>
+最麻烦的还是每次换行都要手写&lt;br&gt; 即使装了插件 这个过程也没好到哪里去<br>
+<br>
+于是我想 我也发不出什么高级东西 每篇博客就只有标题 文本 代码 图片 根本不会每次去大改html页面的结构 那我为什么不能写在txt里面 然后自动生成呢<br>
+<br>
+然后。。。<br>
+<br>
+
+</div><img src="img/4/1.png"><div class="txt">
+<br>
+<br>
+今天 我本可以去学学高数 打打游戏 或者哪怕出去溜达呢<br>
+<br>
+但是我选择了在这里坐牢<br>
+<br>
+首先是定义一些常量吧 这些东西是每一篇html都有的重复内容<br>
+<br>
+
+</div><img src="img/4/2.png"><div class="txt">
+<br>
+<br>
+接下来是一些 只需要改一两处地方的html语句<br>
+<br>
+
+</div><img src="img/4/3.png"><div class="txt">
+<br>
+<br>
+接下来我简单设计了一下语法<br>
+<br>
+首先这个txt必须叫做origin.txt 同目录下必须有img目录<br>
+<br>
+txt的第一行会被视作标题<br>
+<br>
+接下来 代码会被“&lt;”和“&gt;”框起来 就像：<br>
+<br>
+
+</div><img src="img/4/4.png"><div class="txt">
+<br>
+<br>
+图片就直接用@代替<br>
+<br>
+第一个@会被替换为img里面的1.png 第二个会被替换为2.png 以此类推<br>
+<br>
+然后在blyag这里 blog目录被单独放在了一个文件：<br>
+<br>
+
+</div><img src="img/4/5.png"><div class="txt">
+<br>
+<br>
+这个文件是会被blyagger修改的 最上面那个注释表示目前已经有几篇blog了<br>
+<br>
+blyagger首先读取这个数字 用于生成html和图片目录的名字 最后将新文章加入这个地方 并修改注释<br>
+<br>
+然后规定在~/.blyagger文件里面 写着blyag网页本身git repo的目录<br>
+<br>
+
+</div><img src="img/4/6.png"><div class="txt">
+<br>
+<br>
+于是 当我们按照规矩 编辑好网站后 只要blyagger ./xxx<br>
+<br>
+程序就会自动把txt转换成html 连带着图片 放入blyag repo正确的位置 修改blog_list.html<br>
+<br>
+自动git add . git commit  -m "xxx" git push<br>
+<br>
+最后不出意外就部署成功了<br>
+<br>
+
+</div><img src="img/4/7.png"><div class="txt">
+<br>
+<br>
+当然了 我知道专业的web开发者肯定觉得这不像话<br>
+<br>
+首先是格式不够灵活 如果以后需求超过了文本 图片和代码怎么办<br>
+<br>
+而且这个东西和网站本身耦合度太高了 想要一直给其他网站用要改很多常量<br>
+<br>
+不过我应该还是会凑合用吧 反正我这博客也没人看～<br>
+<br>
+仓库地址：https://github.com/nuistMrChest/blyagger.git<br>
+<br>
+轻喷<br>
+
+</div>
+</div>
+        <script src="/main.js"></script>
+    </body>
+</html>
