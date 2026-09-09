@@ -1,0 +1,421 @@
+
+<!-- 老师真帅 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BLYAG!!!!! - Personal blog of MrChest</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="\icon.jpg" type="/image/jpeg">
+    </head>
+    <body>
+        <div id="bk">
+        </div><div id="title-box"><t2 id="sub-title">Git 学习笔记（3）
+</t2></div>
+<div id="nav-rep"></div>
+<div id="main">
+<div class="txt">
+git本体熟悉后 我们来熟悉一下ide中的git使用<br>
+<br>
+在emacs中 最著名的git插件就是magit了 我们也已经安装好了<br>
+<br>
+我们看看包含那些命令<br>
+<br>
+输入magit后按tab：<br>
+<br>
+
+</div><img src="img/5/1.png"><div class="txt">
+<br>
+<br>
+非常多 大部分看上去都和git的参数有关系<br>
+<br>
+老样子 创建一个专门的项目来学习<br>
+<br>
+
+</div><img src="img/5/2.png"><div class="txt">
+<br>
+<br>
+刚才看见magit本身就是magit-status 猜测和git status是一样的 ？<br>
+<br>
+试试<br>
+<br>
+
+</div><img src="img/5/3.png"><div class="txt">
+<br>
+<br>
+提示了这个<br>
+<br>
+我们RET<br>
+<br>
+
+</div><img src="img/5/4.png"><div class="txt">
+<br>
+<br>
+giao目录还不是git repo<br>
+<br>
+那我们直接y创建<br>
+<br>
+
+</div><img src="img/5/5.png"><div class="txt">
+<br>
+<br>
+.git成功创建 然后出来一个神秘分屏。。。<br>
+<br>
+再次输入magit依然是这样<br>
+<br>
+那我们先写点东西试试<br>
+<br>
+
+</div><img src="img/5/6.png"><div class="txt">
+<br>
+<br>
+保存后再次尝试magit-status<br>
+<br>
+
+</div><img src="img/5/7.png"><div class="txt">
+<br>
+<br>
+出现了untracked files<br>
+<br>
+有一个小“&gt;”  感觉是可以展开的<br>
+<br>
+光标移动到上面RET无反映<br>
+<br>
+尝试tab 展开了<br>
+<br>
+
+</div><img src="img/5/8.png"><div class="txt">
+<br>
+<br>
+那怎么给他add了呢<br>
+<br>
+我们?一下试试有没有提示文档吧<br>
+<br>
+
+</div><img src="img/5/9.png"><div class="txt">
+<br>
+<br>
+果然<br>
+<br>
+并没有看见add 但是有stage<br>
+<br>
+在我的印象里 add就是加进index 而stage几乎是index的别名<br>
+<br>
+那试试吧 按他说的s<br>
+<br>
+
+</div><img src="img/5/10.png"><div class="txt">
+<br>
+<br>
+变成了staged changes<br>
+<br>
+我们用git验证一下<br>
+<br>
+
+</div><img src="img/5/11.png"><div class="txt">
+<br>
+<br>
+成功了<br>
+<br>
+刚才的提示里面也写了 c是commit 那我们创建一次commit<br>
+<br>
+按c：<br>
+<br>
+
+</div><img src="img/5/12.png"><div class="txt">
+<br>
+<br>
+关于commit的一系列操作<br>
+<br>
+再次按c<br>
+<br>
+
+</div><img src="img/5/13.png"><div class="txt">
+<br>
+<br>
+进入了一个buffer 让输入commit message<br>
+<br>
+
+</div><img src="img/5/14.png"><div class="txt">
+<br>
+<br>
+额 然后呢<br>
+<br>
+
+</div><img src="img/5/15.png"><div class="txt">
+<br>
+<br>
+C-x C-s倒是能保存他<br>
+<br>
+我们再次magit<br>
+<br>
+
+</div><img src="img/5/16.png"><div class="txt">
+<br>
+<br>
+一就是这样 没有commit<br>
+<br>
+c呢<br>
+<br>
+
+</div><img src="img/5/17.png"><div class="txt">
+<br>
+<br>
+又回来了<br>
+<br>
+之前的?里面说C-x m是快捷键<br>
+<br>
+我们看看<br>
+<br>
+
+</div><img src="img/5/18.png"><div class="txt">
+<br>
+<br>
+这些单字快捷键应该是不用看了<br>
+<br>
+差不多剩下了这些<br>
+<br>
+
+</div><img src="img/5/19.png"><div class="txt">
+<br>
+<br>
+dispatch是什么 把什么和什么分离了呢<br>
+<br>
+试试看<br>
+<br>
+
+</div><img src="img/5/20.png"><div class="txt">
+<br>
+<br>
+菜单终于回来了<br>
+<br>
+那dispatch应该是类 似vim里的esc吧<br>
+<br>
+点c继续commit后又回到了编辑的buffer 然后我再次尝试C-c C-c 他就commit成功了<br>
+<br>
+？！<br>
+<br>
+在来回尝试了几次后确定<br>
+<br>
+magit-status页面的C-c C-c是打开菜单<br>
+<br>
+在commit message编辑页面C-c C-c是提交commit<br>
+<br>
+
+</div><img src="img/5/21.png"><div class="txt">
+<br>
+<br>
+回到这里<br>
+<br>
+我们来emacs经典的C-h b<br>
+<br>
+
+</div><img src="img/5/22.png"><div class="txt">
+<br>
+<br>
+可以看到这里名确写了 C-c C-c是结束编辑<br>
+<br>
+那么从修改-add-commit这条路就打通了<br>
+<br>
+那如果我想看log 呢<br>
+<br>
+
+</div><img src="img/5/23.png"><div class="txt">
+<br>
+<br>
+这里说是l<br>
+<br>
+
+</div><img src="img/5/24.png"><div class="txt">
+<br>
+<br>
+选all branches<br>
+<br>
+
+</div><img src="img/5/25.png"><div class="txt">
+<br>
+<br>
+看上去是比git log要简洁了不少<br>
+<br>
+
+</div><img src="img/5/26.png"><div class="txt">
+<br>
+<br>
+按RET就会出现显示详细信息的window<br>
+<br>
+那如果我们要switch回上一个commit呢<br>
+<br>
+找了半天 在branch相关的地方找到了这个<br>
+<br>
+
+</div><img src="img/5/27.png"><div class="txt">
+<br>
+<br>
+之前在git switch相关文档里好像有印象<br>
+<br>
+尝试一下<br>
+<br>
+
+</div><img src="img/5/28.png"><div class="txt">
+<br>
+<br>
+要输入checkout<br>
+<br>
+把上一次commit的hash复制进去<br>
+<br>
+
+</div><img src="img/5/29.png"><div class="txt">
+<br>
+<br>
+RET<br>
+<br>
+
+</div><img src="img/5/30.png"><div class="txt">
+<br>
+<br>
+我们看看status<br>
+<br>
+
+</div><img src="img/5/31.png"><div class="txt">
+<br>
+<br>
+看看main.c<br>
+<br>
+
+</div><img src="img/5/32.png"><div class="txt">
+<br>
+<br>
+确实是上一次的内容<br>
+<br>
+其余的tag branch之类的 也都是很傻瓜式的操作 这里就不展示了<br>
+<br>
+主要来试试clone 毕竟从github上面clone仓库也是很常用的操作<br>
+<br>
+
+</div><img src="img/5/33.png"><div class="txt">
+<br>
+<br>
+新建了一个文件夹<br>
+<br>
+
+</div><img src="img/5/34.png"><div class="txt">
+<br>
+<br>
+clone是大写C<br>
+<br>
+
+</div><img src="img/5/35.png"><div class="txt">
+<br>
+<br>
+可以选url path之类的多种选项<br>
+<br>
+我们就选url<br>
+<br>
+
+</div><img src="img/5/36.png"><div class="txt">
+<br>
+<br>
+去github上面找点什么吧<br>
+<br>
+
+</div><img src="img/5/37.png"><div class="txt">
+<br>
+<br>
+就来这个吧 tsoding直播写的lambda演算解释器<br>
+<br>
+url:https://github.com/rexim/lambda.git<br>
+<br>
+
+</div><img src="img/5/38.png"><div class="txt">
+<br>
+<br>
+让我们选择路径<br>
+<br>
+
+</div><img src="img/5/39.png"><div class="txt">
+<br>
+<br>
+这就很奇怪了 为了进入magit-status 我必须先创建一个git仓库 根目录就是这个giao0 但是在git repo里面clone一个git repo 不是很诡异吗 但是如果我们路径就写giao0：<br>
+<br>
+
+</div><img src="img/5/40.png"><div class="txt">
+<br>
+<br>
+是否设置remote我们就选是<br>
+<br>
+
+</div><img src="img/5/41.png"><div class="txt">
+<br>
+<br>
+额？<br>
+<br>
+
+</div><img src="img/5/42.png"><div class="txt">
+<br>
+<br>
+好吧是dired-mode日常抽风<br>
+<br>
+但是他还是诡异的给我clone在giao0里面了<br>
+<br>
+一开始看见那么多命令呢 那些应该不依赖于magit-status<br>
+<br>
+比如我们再来<br>
+<br>
+
+</div><img src="img/5/43.png"><div class="txt">
+<br>
+<br>
+直接就有这命令<br>
+<br>
+
+</div><img src="img/5/44.png"><div class="txt">
+<br>
+<br>
+依旧url<br>
+<br>
+
+</div><img src="img/5/45.png"><div class="txt">
+<br>
+<br>
+走你<br>
+<br>
+
+</div><img src="img/5/46.png"><div class="txt">
+<br>
+<br>
+这个默认目录就对头多了<br>
+<br>
+
+</div><img src="img/5/47.png"><div class="txt">
+<br>
+<br>
+成功<br>
+<br>
+push 依旧傻瓜式<br>
+<br>
+
+</div><img src="img/5/48.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/5/49.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/5/50.png"><div class="txt">
+<br>
+<br>
+不过要注意 magit的push偶尔会吃不到加速器和代理 如果网络不好 不能直连github 还得手动去shell里面git push<br>
+<br>
+那magit里面常用的指令差不多就这些了 绝大部分都是git参数的gui加快捷键 个别命令改了个名称之类的 用起来还算方便 但是也需要有点git基础吧<br>
+<br>
+本文全为初学者摸索 如有不对请指出<br>
+<br>
+跑路～<br>
+2026.9.9<br>
+
+</div>
+</div>
+        <script src="/main.js"></script>
+    </body>
+</html>
