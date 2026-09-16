@@ -1,0 +1,426 @@
+
+<!-- 老师真帅 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BLYAG!!!!! - Personal blog of MrChest</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="\icon.jpg" type="/image/jpeg">
+    </head>
+    <body>
+        <div id="bk">
+        </div><div id="title-box"><t2 id="sub-title">Go语言开箱
+</t2></div>
+<div id="nav-rep"></div>
+<div id="main">
+<div class="txt">
+对于go语言 我早就有所耳闻 但是从未真正尝试过<br>
+<br>
+今天终于有空来体验一下<br>
+<br>
+
+</div><img src="img/6/1.png"><div class="txt">
+<br>
+<br>
+这里编译器已经装好了 不知道叫编译器对不对 毕竟我也不知道go是编译型语言还是解释型语言<br>
+<br>
+也尝试找找lsp吧<br>
+<br>
+
+</div><img src="img/6/2.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/3.png"><div class="txt">
+<br>
+<br>
+安装一下<br>
+<br>
+
+</div><img src="img/6/4.png"><div class="txt">
+<br>
+<br>
+希望lsp-mode认识他<br>
+<br>
+
+</div><img src="img/6/5.png"><div class="txt">
+<br>
+<br>
+新建一个目录吧<br>
+<br>
+
+</div><img src="img/6/6.png"><div class="txt">
+<br>
+<br>
+接下来我们来看看go官方的“hello world”吧<br>
+<br>
+
+</div><img src="img/6/7.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/8.png"><div class="txt">
+<br>
+<br>
+interesting<br>
+<br>
+
+</div><img src="img/6/9.png"><div class="txt">
+<br>
+<br>
+补全没有出现 底部甚至没有go-mode之类 的<br>
+<br>
+
+</div><img src="img/6/10.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/11.png"><div class="txt">
+<br>
+<br>
+看来还是要手动装一下<br>
+<br>
+
+</div><img src="img/6/12.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/13.png"><div class="txt">
+<br>
+<br>
+漂亮 打开文件时跳出经典的项目加载了<br>
+<br>
+那我们就先按照example试试<br>
+<br>
+
+</div><img src="img/6/14.png"><div class="txt">
+<br>
+<br>
+然后按照教程 可以直接run 也可以构建出类似可知性文件的东西<br>
+<br>
+那我们先run试试<br>
+<br>
+
+</div><img src="img/6/15.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/16.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/17.png"><div class="txt">
+<br>
+<br>
+没问题 字符串被正确输出了<br>
+<br>
+那构建试试？<br>
+<br>
+
+</div><img src="img/6/18.png"><div class="txt">
+<br>
+<br>
+显示成功<br>
+<br>
+
+</div><img src="img/6/19.png"><div class="txt">
+<br>
+<br>
+确实出现了一个有x权限的文件<br>
+<br>
+
+</div><img src="img/6/20.png"><div class="txt">
+<br>
+<br>
+是个elf 而且静态链接（狂喜）<br>
+<br>
+那么也就是说go是一门编译型语言<br>
+<br>
+那么go run就是编译后直接跑？<br>
+<br>
+我们接着看exapmle<br>
+<br>
+
+</div><img src="img/6/21.png"><div class="txt">
+<br>
+<br>
+这个example说明go的字符串还是比较现代的 支持用+运算符拼接<br>
+<br>
+而且函数Println支持多参数<br>
+<br>
+也体现出go的浮点数依然有IEEE754精度的坑 不过在编译型语言里这也正常<br>
+<br>
+bool类型也能直接输出<br>
+<br>
+至少从Println的用法来看 go的函数支持多参数和泛型？<br>
+<br>
+下一个例子是变量<br>
+<br>
+
+</div><img src="img/6/22.png"><div class="txt">
+<br>
+<br>
+写法千奇百怪 但是可以看出具有编译器推断类型 而且是类型后置语言<br>
+<br>
+支持用var声明变量 还有一个奇怪的运算符 :=<br>
+<br>
+
+</div><img src="img/6/23.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/24.png"><div class="txt">
+<br>
+<br>
+那c风格的类型前置能行吗<br>
+<br>
+
+</div><img src="img/6/25.png"><div class="txt">
+<br>
+<br>
+lsp直接报错 而且说是缺少分号 看来必须是类型后置<br>
+<br>
+那能不能let呢<br>
+<br>
+
+</div><img src="img/6/26.png"><div class="txt">
+<br>
+<br>
+好吧也不行<br>
+<br>
+注意到一点是go语言似乎行尾有无分号都是合法的 和js一样<br>
+<br>
+
+</div><img src="img/6/27.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/28.png"><div class="txt">
+<br>
+<br>
+希望和js的共同点就仅限于此吧<br>
+<br>
+
+</div><img src="img/6/29.png"><div class="txt">
+<br>
+<br>
+常量的example里最令人注意的不是常量本身 而是math库<br>
+<br>
+import可以通过括号一次性引入多个库 不错<br>
+<br>
+接下来for的example看起来就比较高能了<br>
+<br>
+
+</div><img src="img/6/30.png"><div class="txt">
+<br>
+<br>
+似乎是go里面的所有循环都是用for关键字写的？<br>
+<br>
+c风格的for当然是可以写的 <br>
+<br>
+
+</div><img src="img/6/31.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/32.png"><div class="txt">
+<br>
+<br>
+然后这个for能当while使<br>
+<br>
+
+</div><img src="img/6/33.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/34.png"><div class="txt">
+<br>
+<br>
+然后还能当loop使<br>
+<br>
+
+</div><img src="img/6/35.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/36.png"><div class="txt">
+<br>
+<br>
+甚至能当foreach<br>
+<br>
+
+</div><img src="img/6/37.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/38.png"><div class="txt">
+<br>
+<br>
+惜字（关键字）如金啊<br>
+<br>
+
+</div><img src="img/6/39.png"><div class="txt">
+<br>
+<br>
+if也是诡异的支持在条件处声明变量 但是暂时没看见go有模式匹配 那这东西也不是if let吧<br>
+<br>
+接下来看switch<br>
+<br>
+
+</div><img src="img/6/40.png"><div class="txt">
+<br>
+<br>
+怎么说呢 go没有adt的和类型 但是switch依然能用于类型模式匹配<br>
+<br>
+而用处竟然是泛型函数。。。<br>
+<br>
+那不过也说明这个any是运行时多态？<br>
+<br>
+而且也说明go能用func直接定义lambda一样的匿名函数？<br>
+<br>
+我们来看看这个“lambda”能不能捕获<br>
+<br>
+
+</div><img src="img/6/41.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/42.png"><div class="txt">
+<br>
+<br>
+完全没问题<br>
+<br>
+那么go具备了初步的函数式语法<br>
+<br>
+
+</div><img src="img/6/43.png"><div class="txt">
+<br>
+<br>
+go中的数组还是比较静态的 要么写明长度 要么从字面量推断 总之要在编译期确定数组打下<br>
+<br>
+而且Println是可以直接输出数组的 如果要实现一些线性代数方面的算法还是比较方便的<br>
+<br>
+切片之类的语法糖就不看了<br>
+<br>
+作为编译型语言 我很好奇他的内存管理<br>
+<br>
+先看看内存管理必备的指针<br>
+<br>
+
+</div><img src="img/6/44.png"><div class="txt">
+<br>
+<br>
+没毛病 经典的c风格指针写法<br>
+<br>
+然后是对象的创建 我是没找到关于class的example 那就看看struct吧<br>
+<br>
+
+</div><img src="img/6/45.png"><div class="txt">
+<br>
+<br>
+？？？<br>
+<br>
+这教程没写错吧 返回局部变量指针还使用 不会段错误吗<br>
+<br>
+我们自己来试试<br>
+<br>
+
+</div><img src="img/6/46.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/47.png"><div class="txt">
+<br>
+<br>
+没问题<br>
+<br>
+这就奇怪了 难道说:=的意思是创建在堆上？那之前的例子中不会内存泄露吗 因为没有任何delete free之类的操作<br>
+<br>
+那我们换成var声明变量试试<br>
+<br>
+
+</div><img src="img/6/48.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/49.png"><div class="txt">
+<br>
+<br>
+也没问题<br>
+<br>
+这就奇怪了<br>
+<br>
+难道go的函数调用结束后 栈内存不会pop吗 那我们调用两次试试<br>
+<br>
+
+</div><img src="img/6/50.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/6/51.png"><div class="txt">
+<br>
+<br>
+也没问题<br>
+<br>
+这证明了如果栈内存没有pop 那肯定也没覆盖 这样没多久就栈溢出了 这肯定不像话<br>
+<br>
+那这个对象应该是在堆上 那难道go的所有数据全创建在堆上？还是其实栈和堆是一个写法 编译器通过推断决定分配在哪里？<br>
+<br>
+但是编译器是不能决定何时回收内存的呀 哪怕是rust 也要严格规定所有权模型才能勉强做到<br>
+<br>
+越来越奇怪了<br>
+<br>
+
+</div><img src="img/6/52.png"><div class="txt">
+<br>
+<br>
+我们来看看example的描述<br>
+<br>
+所以go是有gc的 默认状态下对象当然就分配在栈上 但是如果对象的适用范围超出了作用于 那么就会被分配与堆上<br>
+<br>
+这笔java 早期通通都往堆上扔合理多了<br>
+<br>
+但是编译成elf的语言带gc 之前好像也只在haskell上见到过<br>
+<br>
+也说的通 直接编译为elf使得他不需要解释器和虚拟机 这就比js java快了不少 而gc的出现又使得开发效率要远高于cpp和rust<br>
+<br>
+而且看下来go根本没有封装继承多态那一套祖宗章程 反而回归了c的结构体 还是比较清爽的 不必担心同事写的继承屎山了 而接口系统一定程度的保留了继承和多态 这也比c在那里到腾函数指针舒服不少<br>
+<br>
+
+</div><img src="img/6/53.png"><div class="txt">
+<br>
+<br>
+遗憾的是没有enum union等和类型 所谓的枚举也就是批量定义常量 不能像haskell或rust那样到处match了<br>
+<br>
+泛型之类的先不看了 这是现代语言烂大街的功能 我反而比较感兴趣这个叫goroutine的东西 确定不是协程coroutine打错字了？<br>
+<br>
+
+</div><img src="img/6/54.png"><div class="txt">
+<br>
+<br>
+一开始我还以为就是语法设计让多线程方便写了一点 但是描述里面说：<br>
+<br>
+
+</div><img src="img/6/55.png"><div class="txt">
+<br>
+<br>
+也就是说这个多线程不是linux内核管理的 是go runtime管理的<br>
+<br>
+为啥呀 难道性能上能更快吗 因为不必在有创建线程的开销 可以自己复用？<br>
+<br>
+接下来example基本是多线程里面的锁 共享之类的 以及配置文本解析了<br>
+<br>
+也正常 早就听说go的多线程是很厉害的 目前初体验下来也是比cpp的std::thread舒服多了<br>
+<br>
+不过时间有限 今天先学到这儿<br>
+<br>
+跑路～<br>
+<br>
+2026.9.16<br>
+
+</div>
+</div>
+        <script src="/main.js"></script>
+    </body>
+</html>
