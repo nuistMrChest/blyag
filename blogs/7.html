@@ -1,0 +1,376 @@
+
+<!-- 老师真帅 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BLYAG!!!!! - Personal blog of MrChest</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="\icon.jpg" type="/image/jpeg">
+    </head>
+    <body>
+        <div id="bk">
+        </div><div id="title-box"><t2 id="sub-title">tmux学习笔记
+</t2></div>
+<div id="nav-rep"></div>
+<div id="main">
+<div class="txt">
+本人虽然是个emacs用户 但是一台陌生平台上有vi/vim/nvim/nvi/busybox vi的概率显然更大 而这个系列的文本编辑器大多是cli程序 打开或关闭 虽然tty等办法能够部分解决这个问题 但总觉得别扭 所以在cli里要想有完善的多任务和窗口管理 还是得学习一下tmux <br>
+<br>
+先验证一下tmux安装情况<br>
+<br>
+
+</div><img src="img/7/1.png"><div class="txt">
+<br>
+<br>
+看来确实安装了 但是不能--version<br>
+<br>
+看看能不能--help <br>
+<br>
+
+</div><img src="img/7/2.png"><div class="txt">
+<br>
+<br>
+也没给出什么更多信息<br>
+<br>
+我们直接无参数试试<br>
+<br>
+
+</div><img src="img/7/3.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/4.png"><div class="txt">
+<br>
+<br>
+似乎是打开了什么 但依然是zsh<br>
+<br>
+
+</div><img src="img/7/5.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/6.png"><div class="txt">
+<br>
+<br>
+就退出了<br>
+<br>
+那man呢<br>
+<br>
+
+</div><img src="img/7/7.png"><div class="txt">
+<br>
+<br>
+有东西<br>
+<br>
+启动参数就先不管他了 在这里找到一堆快捷键<br>
+<br>
+
+</div><img src="img/7/8.png"><div class="txt">
+<br>
+<br>
+C-b加某个快捷键吗 emacs用户狂喜<br>
+<br>
+这里反复出现一个概念叫window<br>
+<br>
+
+</div><img src="img/7/9.png"><div class="txt">
+<br>
+<br>
+先创建一个试试<br>
+<br>
+
+</div><img src="img/7/10.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/11.png"><div class="txt">
+<br>
+<br>
+下方就多了一个<br>
+<br>
+
+</div><img src="img/7/12.png"><div class="txt">
+<br>
+<br>
+这里说可以选择window？<br>
+<br>
+
+</div><img src="img/7/13.png"><div class="txt">
+<br>
+<br>
+就这个星号位置改变了<br>
+<br>
+那比如我们选到0 做点什么事情 到1还看得见吗<br>
+<br>
+
+</div><img src="img/7/14.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/15.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/16.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/17.png"><div class="txt">
+<br>
+<br>
+所以这是个切屏功能？<br>
+<br>
+还有两个出现了几次的概念 client pane<br>
+<br>
+先看看client吧<br>
+<br>
+我好想没有找到创建client的快捷键<br>
+<br>
+这里有一个“detach”<br>
+<br>
+
+</div><img src="img/7/18.png"><div class="txt">
+<br>
+<br>
+尝试一下<br>
+<br>
+
+</div><img src="img/7/19.png"><div class="txt">
+<br>
+<br>
+就出来了<br>
+<br>
+提示信息和刚才exit并不一样 还出现了一个叫session的概念 告诉我刚才叫session 0<br>
+<br>
+那咋回去呢<br>
+<br>
+先试试tmux 0<br>
+<br>
+
+</div><img src="img/7/20.png"><div class="txt">
+<br>
+<br>
+不行<br>
+<br>
+想 有detach就有attach 所以试试tmux attach 0<br>
+<br>
+
+</div><img src="img/7/21.png"><div class="txt">
+<br>
+<br>
+啥意思<br>
+<br>
+把0去了呢<br>
+<br>
+
+</div><img src="img/7/22.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/23.png"><div class="txt">
+<br>
+<br>
+就回来了<br>
+<br>
+那我想验证一个事情 这能不能用来提到nohup<br>
+<br>
+本人是带着笔记本在图书馆和空教室 通过ssh访问宿舍主机的宝贝gpu 就有一个问题 ssh直接跑的东西是zsh的子进程 ssh如果断开了（由于这个不好评价的校园网 经常断开）zsh自己就先结束了 他运行的训练之类 的也就寄了 当然也可以&或者nohup 但所这玩意儿是后台运行 只能跑完了看结果 我甚至要htop和nvidia-smi看跑没跑完 很有可能等了一下午才知道训练翻车了<br>
+<br>
+那如果tmux能够随时断开和回去 我是不是就能够解决这个问题<br>
+<br>
+测试一下<br>
+<br>
+
+</div><img src="img/7/24.png"><div class="txt">
+<br>
+<br>
+ssh进了我的主机<br>
+<br>
+装个tmux先<br>
+<br>
+
+</div><img src="img/7/25.png"><div class="txt">
+<br>
+<br>
+简单写一个程序吧<br>
+<br>
+
+</div><img src="img/7/26.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/27.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/28.png"><div class="txt">
+<br>
+<br>
+我们启动tmux运行他<br>
+<br>
+
+</div><img src="img/7/29.png"><div class="txt">
+<br>
+<br>
+每毛病<br>
+<br>
+现在detach<br>
+<br>
+
+</div><img src="img/7/30.png"><div class="txt">
+<br>
+<br>
+也是detach了 最后输出到3718026<br>
+<br>
+我们等一会 然后attach<br>
+<br>
+
+</div><img src="img/7/31.png"><div class="txt">
+<br>
+<br>
+已经到10190604了 说明这个东西在后台确实不在摸鱼<br>
+<br>
+
+</div><img src="img/7/32.png"><div class="txt">
+<br>
+<br>
+ps也说明确实没停下<br>
+<br>
+现在我们断开ssh<br>
+<br>
+
+</div><img src="img/7/33.png"><div class="txt">
+<br>
+<br>
+再ssh进去<br>
+<br>
+
+</div><img src="img/7/34.png"><div class="txt">
+<br>
+<br>
+进程依然存在<br>
+<br>
+我们attach<br>
+<br>
+
+</div><img src="img/7/35.png"><div class="txt">
+<br>
+<br>
+已经到417102785了<br>
+<br>
+光 从这个角度出发tmux也称得上是神器了<br>
+<br>
+那我还是不明白 session和client的区别是啥 为什么detach的时候给session了一个标号0 难道允许有多个session吗<br>
+<br>
+继续看man<br>
+<br>
+
+</div><img src="img/7/36.png"><div class="txt">
+<br>
+<br>
+在example里找到了一些内容<br>
+<br>
+这个vi指的是程序名还是可以随便起名字呢<br>
+<br>
+试试看<br>
+<br>
+
+</div><img src="img/7/37.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/38.png"><div class="txt">
+<br>
+<br>
+给我光速退出了<br>
+<br>
+
+</div><img src="img/7/39.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/40.png"><div class="txt">
+<br>
+<br>
+这没问题<br>
+<br>
+
+</div><img src="img/7/41.png"><div class="txt">
+<br>
+<br>
+detach时又给了个序号2<br>
+<br>
+
+</div><img src="img/7/42.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/43.png"><div class="txt">
+<br>
+<br>
+这个attach应该是返回最后退出的那个<br>
+<br>
+那我怎么返回0呢<br>
+<br>
+
+</div><img src="img/7/44.png"><div class="txt">
+<br>
+<br>
+才找到这个东西<br>
+<br>
+首先说明了attach和detach的操作是针对的client这个概念 并不是session 这应该就是为啥attach不允许接受session的名字吧 因为这个client默认显示着session 2<br>
+<br>
+我们C-b s<br>
+<br>
+
+</div><img src="img/7/45.png"><div class="txt">
+<br>
+<br>
+漂亮 可以选择了<br>
+<br>
+
+</div><img src="img/7/46.png"><div class="txt">
+<br>
+<br>
+下方还能预览<br>
+<br>
+那我差不多明白了 session应该是类似于用户或者工作区吧 一个session里面可以有若干window来回切换 而client就类似于终端 可以选择展示操作哪个session<br>
+<br>
+那么pane呢<br>
+<br>
+
+</div><img src="img/7/47.png"><div class="txt">
+<br>
+<br>
+
+</div><img src="img/7/48.png"><div class="txt">
+<br>
+<br>
+看上去像分屏<br>
+<br>
+
+</div><img src="img/7/49.png"><div class="txt">
+<br>
+<br>
+没毛病<br>
+<br>
+
+</div><img src="img/7/50.png"><div class="txt">
+<br>
+<br>
+而且是局限于单个window的<br>
+<br>
+也就是说 pane in window in session？<br>
+<br>
+那么今天就先学到这里 主要瞎玩了一通 了解了一下主要概念<br>
+<br>
+下次跟着文档系统的学应该会容易一点了吧<br>
+<br>
+跑路～<br>
+
+</div>
+</div>
+        <script src="/main.js"></script>
+    </body>
+</html>
